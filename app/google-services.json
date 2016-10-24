@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "408488941308",
+    "firebase_url": "https://halo5-d8258.firebaseio.com",
+    "project_id": "halo5-d8258",
+    "storage_bucket": "halo5-d8258.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408488941308:android:53be4ef42af4bb2a",
+        "android_client_info": {
+          "package_name": "com.tiredpapi.halo5"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "408488941308-8neg9glqbi8ccukdk49dmojphjukkqlb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUV41eVb_D8QZZXnWVCmF7NsZldnwZ5Ow"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
