@@ -1,23 +1,25 @@
 package com.tiredpapi.halo5;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    public void checkFirebase(View view) {
-        Map<String, Objects> names = new HashMap<>();
-        names.put("Name", "Michal");
-        names.put("SureName", "Tomas");
+    public static DatabaseReference rootRef;
 
+    public void buttonDisplayServiceRecord(View view) {
+        Intent i = new Intent(this, DisplayServiceRecordActivity.class);
+        startActivity(i);
+    }
+
+    public void buttonUpdateServiceRecordMain(View view) {
+        Intent i = new Intent(this, UpdateServiceRecordActivity.class);
+        startActivity(i);
     }
 
     @Override
@@ -25,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.i(Constant.LOG_TAG, "onCreate started");
-
-        FirebaseDatabase fb = new FirebaseDatabase(Constant.FIREBASE_URL);
+        rootRef = FirebaseDatabase.getInstance().getReferenceFromUrl(Constant.FIREBASE_URL);
     }
 }
