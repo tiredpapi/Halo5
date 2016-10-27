@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * Created by michal on 10/26/2016.
  */
-public class DisplayServiceRecordJSON {
+public class JsonServiceRecord {
     private JSONObject jsonObjectData;
     private JSONArray jsonArrayResults;
     private JSONObject jsonObjectResult;
@@ -29,7 +29,7 @@ public class DisplayServiceRecordJSON {
     private String totalGamesLost;
     private String totalHeadShots;
 
-    public DisplayServiceRecordJSON(String data) throws JSONException {
+    public JsonServiceRecord(String data) throws JSONException {
         this.jsonObjectData = new JSONObject(data);
         this.jsonArrayResults = jsonObjectData.getJSONArray("Results");
         this.jsonObjectResult = new JSONObject(jsonArrayResults.getJSONObject(0).getString("Result"));

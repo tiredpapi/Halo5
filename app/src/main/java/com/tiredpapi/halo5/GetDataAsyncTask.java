@@ -20,7 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-class ServiceRecordAsyncTask extends AsyncTask<String, Void, String> {
+class GetDataAsyncTask extends AsyncTask<String, Void, String> {
     private String data = "";
 
     @Override

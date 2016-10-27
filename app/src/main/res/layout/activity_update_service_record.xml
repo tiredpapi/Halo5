@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.tiredpapi.halo5.UpdateServiceRecordActivity">
+    tools:context=".ActivityUpdate">
 
     <Button
         android:layout_width="wrap_content"
@@ -21,7 +21,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Service Record RAW"
+        android:text="Update Service Record RAW - Async"
         android:id="@+id/buttonUpdateServiceRecordService"
         android:onClick="buttonUpdateServiceRecordService"
         android:layout_alignParentTop="true"
@@ -40,7 +40,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UPDATE SERVICE RECORD STATS"
+        android:text="UPDATE SERVICE RECORD STATS - FBase"
         android:id="@+id/buttonUpdateServiceRecordStats"
         android:layout_below="@+id/buttonUpdateServiceRecordService"
         android:layout_alignParentStart="true"
@@ -50,9 +50,40 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UPDATE LASTE GAMES RAW"
+        android:text="UPDATE LASTE GAMES RAW - ASYNC"
         android:id="@+id/buttonLastGamesRaw"
         android:layout_below="@+id/buttonUpdateServiceRecordStats"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/buttonUpdateServiceRecordStats" />
+        android:layout_alignEnd="@+id/buttonUpdateServiceRecordStats"
+        android:onClick="buttonUpdateGamesRecordRaw"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPDATE LAST GAMES STATS - FBASE"
+        android:id="@+id/button"
+        android:layout_below="@+id/buttonLastGamesRaw"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="buttonUpdateGamesRecordStats"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Last Games:"
+        android:id="@+id/textViewLastGames"
+        android:layout_below="@+id/textViewServiceRecord"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="55dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_alignBottom="@+id/textViewLastGames"
+        android:layout_toEndOf="@+id/textViewLastGames"
+        android:spinnerMode="dropdown"
+        android:background="#c0c0c0" />
+
 </RelativeLayout>

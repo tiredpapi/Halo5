@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.tiredpapi.halo5.MainActivity">
+    tools:context=".ActivityMain">
 
     <Button
         android:layout_width="wrap_content"
@@ -57,6 +57,6 @@
         android:id="@+id/textViewBorec"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/textViewLimited"
-        android:layout_marginStart="23dp" />
+        android:layout_marginStart="23dp"/>
 
 </RelativeLayout>

@@ -8,10 +8,10 @@ import org.json.JSONObject;
 /**
  * Created by michal on 10/27/2016.
  */
-public class ServiceRecordStats {
+public class StringServiceRecord {
     private JSONObject jsonObject;
 
-    public ServiceRecordStats(String data) {
+    public StringServiceRecord(String data) {
         try {
             this.jsonObject = new JSONObject(data);
 
