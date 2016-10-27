@@ -12,7 +12,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Service Record"
+        android:text="update"
         android:id="@+id/buttonUpdateServiceRecordMain"
         android:onClick="buttonUpdateServiceRecordMain"
         android:layout_alignParentBottom="true"
@@ -20,13 +20,43 @@
         android:layout_marginBottom="15dp"
         android:layout_alignParentEnd="true" />
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DISPLAY SERVICE RECORD"
-        android:id="@+id/buttonDisplayServiceRecord"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Info"
+        android:id="@+id/textViewInfo"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="buttonDisplayServiceRecord"/>
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Tombav"
+        android:id="@+id/textViewTombav"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textViewInfo"
+        android:layout_marginStart="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Limited"
+        android:id="@+id/textViewLimited"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textViewTombav"
+        android:layout_marginStart="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Borec"
+        android:id="@+id/textViewBorec"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textViewLimited"
+        android:layout_marginStart="23dp" />
+
 </RelativeLayout>

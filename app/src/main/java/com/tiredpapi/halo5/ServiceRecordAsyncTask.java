@@ -11,6 +11,7 @@ package com.tiredpapi.halo5;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,7 +28,7 @@ class ServiceRecordAsyncTask extends AsyncTask<String, Void, String> {
         try {
             Log.i(Constant.LOG_TAG, "Service record async task started");
 
-            URL url = new URL("https://www.haloapi.com/stats/h5/servicerecords/arena?players=" + string[0]);
+            URL url = new URL(string[0]);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
             httpURLConnection.setRequestProperty("Ocp-Apim-Subscription-Key", "4fed4b5bf1e340cca547c949305f8e9a");

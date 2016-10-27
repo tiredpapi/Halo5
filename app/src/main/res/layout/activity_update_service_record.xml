@@ -21,10 +21,38 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Service Record"
+        android:text="Update Service Record RAW"
         android:id="@+id/buttonUpdateServiceRecordService"
         android:onClick="buttonUpdateServiceRecordService"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textViewServiceRecord"
+        android:layout_below="@+id/buttonUpdateServiceRecordService"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="140dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPDATE SERVICE RECORD STATS"
+        android:id="@+id/buttonUpdateServiceRecordStats"
+        android:layout_below="@+id/buttonUpdateServiceRecordService"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="buttonUpdateServiceRecordStats"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPDATE LASTE GAMES RAW"
+        android:id="@+id/buttonLastGamesRaw"
+        android:layout_below="@+id/buttonUpdateServiceRecordStats"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/buttonUpdateServiceRecordStats" />
 </RelativeLayout>
