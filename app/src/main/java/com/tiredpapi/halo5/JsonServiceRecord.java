@@ -13,12 +13,7 @@ import java.util.Map;
 /**
  * Created by michal on 10/26/2016.
  */
-public class JsonServiceRecord {
-    private JSONObject jsonObjectData;
-    private JSONArray jsonArrayResults;
-    private JSONObject jsonObjectResult;
-    private JSONObject jsonObjectArenaStats;
-    private JSONArray jsonArrayArenaPlaylistStats;
+class JsonServiceRecord {
 
     private String csrPercentil;
     private String totalGamesCompleted;
@@ -30,11 +25,11 @@ public class JsonServiceRecord {
     private String totalHeadShots;
 
     public JsonServiceRecord(String data) throws JSONException {
-        this.jsonObjectData = new JSONObject(data);
-        this.jsonArrayResults = jsonObjectData.getJSONArray("Results");
-        this.jsonObjectResult = new JSONObject(jsonArrayResults.getJSONObject(0).getString("Result"));
-        this.jsonObjectArenaStats = new JSONObject(jsonObjectResult.getString("ArenaStats"));
-        this.jsonArrayArenaPlaylistStats = jsonObjectArenaStats.getJSONArray("ArenaPlaylistStats");
+        JSONObject jsonObjectData = new JSONObject(data);
+        JSONArray jsonArrayResults = jsonObjectData.getJSONArray("Results");
+        JSONObject jsonObjectResult = new JSONObject(jsonArrayResults.getJSONObject(0).getString("Result"));
+        JSONObject jsonObjectArenaStats = new JSONObject(jsonObjectResult.getString("ArenaStats"));
+        JSONArray jsonArrayArenaPlaylistStats = jsonObjectArenaStats.getJSONArray("ArenaPlaylistStats");
 
         for(int i = 0; i < jsonArrayArenaPlaylistStats.length(); i++) {
             if(jsonArrayArenaPlaylistStats.getJSONObject(i).getString("PlaylistId").contains("892189e9-d712-4bdb-afa7-1ccab43fbed4")) {

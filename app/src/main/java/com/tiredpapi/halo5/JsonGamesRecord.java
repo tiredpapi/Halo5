@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * Created by michal on 10/27/2016.
  */
-public class JsonGamesRecord {
+class JsonGamesRecord {
     private int totalGames;
     private int totalKills;
     private int totalAssist;
@@ -39,6 +39,7 @@ public class JsonGamesRecord {
                     totalAssist = totalAssist + Integer.parseInt(jsonArrayPlayers.getJSONObject(0).getString("TotalAssists"));
 
                 } else {
+                    totalGames = totalGames - 1;
                     Log.i(Constant.LOG_TAG, "Hopper ID does not exist " + jsonArray.getJSONObject(i).getString("HopperId"));
                 }
             }

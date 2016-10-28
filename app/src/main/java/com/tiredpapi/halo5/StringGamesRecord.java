@@ -8,7 +8,7 @@ import org.json.JSONObject;
 /**
  * Created by michal on 10/27/2016.
  */
-public class StringGamesRecord {
+class StringGamesRecord {
     private JSONObject jsonObject;
 
     public StringGamesRecord(String data) {
@@ -21,14 +21,13 @@ public class StringGamesRecord {
     }
 
     public String getStatsSting() throws JSONException {
-        String s = jsonObject.getString("TotalGames") + "\n" +
+
+        return jsonObject.getString("TotalGames") + "\n" +
                 jsonObject.getString("TotalKills") + "\n" +
                 jsonObject.getString("TotalAssist") + "\n" +
                 jsonObject.getString("TotalDeaths") + "\n" +
                 jsonObject.getString("KillPerGame") + "\n" +
                 jsonObject.getString("AssistPerGame") + "\n" +
                 jsonObject.getString("DeathsPerGame") + "\n";
-
-        return s;
     }
 }

@@ -1,17 +1,16 @@
 package com.tiredpapi.halo5;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.ActionMenuView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,11 +20,13 @@ import java.util.concurrent.ExecutionException;
 
 public class ActivityUpdate extends AppCompatActivity {
 
-    private String data;
     private TextView textView;
     private Spinner spinner;
+    public static ProgressBar pb;
 
     public void buttonUpdateGamesRecordStats(View view) {
+        pb.setVisibility(View.VISIBLE);
+
         ActivityMain.rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -45,6 +46,8 @@ public class ActivityUpdate extends AppCompatActivity {
                 } catch (Exception e) {
                     Log.w(Constant.LOG_TAG, e);
                 }
+
+                pb.setVisibility(View.GONE);
             }
 
             @Override
@@ -52,6 +55,8 @@ public class ActivityUpdate extends AppCompatActivity {
                 Log.w(Constant.LOG_TAG, databaseError.toString());
             }
         });
+
+
     }
 
     public void buttonUpdateGamesRecordRaw(View view) {
@@ -73,8 +78,6 @@ public class ActivityUpdate extends AppCompatActivity {
         String urlBorec = "https://www.haloapi.com/stats/h5/players/borec z prahy/matches?count=" + count;
         String urlLimited = "https://www.haloapi.com/stats/h5/players/limitedoregon9/matches?count=" + count;
 
-
-
         try {
             data = gameRecordTombav.execute(urlTombav).get();
             ActivityMain.rootRef.child("Games Record Raw").child("tombav").setValue(data);
@@ -93,6 +96,8 @@ public class ActivityUpdate extends AppCompatActivity {
     }
 
     public void buttonUpdateServiceRecordStats(View view) {
+        pb.setVisibility(View.VISIBLE);
+
         ActivityMain.rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -112,6 +117,8 @@ public class ActivityUpdate extends AppCompatActivity {
                 } catch(Exception e) {
                     Log.w(Constant.LOG_TAG, e);
                 }
+
+                pb.setVisibility(View.GONE);
             }
 
             @Override
@@ -131,7 +138,8 @@ public class ActivityUpdate extends AppCompatActivity {
         String url = "https://www.haloapi.com/stats/h5/servicerecords/arena?players=";
 
         try {
-            data = serviceRecordTombav.execute(url + "tombav").get();
+            serviceRecordTombav.setActivity(this);
+            String data = serviceRecordTombav.execute(url + "tombav").get();
             ActivityMain.rootRef.child("Service Record Raw").child("tombav").setValue(data);
 
             data = serviceRecordBorec.execute(url + "borec z prahy").get();
@@ -142,9 +150,7 @@ public class ActivityUpdate extends AppCompatActivity {
 
             textView.setText("Update service record finished");
 
-        } catch (InterruptedException e) {
-            Log.w(Constant.LOG_TAG, e);
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             Log.w(Constant.LOG_TAG, e);
         }
     }
@@ -161,11 +167,12 @@ public class ActivityUpdate extends AppCompatActivity {
         setContentView(R.layout.activity_update_service_record);
 
         textView = (TextView) findViewById(R.id.textViewServiceRecord);
+        pb = (ProgressBar) findViewById(R.id.progressBar);
 
         spinner = (Spinner) findViewById(R.id.spinner);
         Integer[] items = new Integer[]{10,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,50,100,200,400};
 
-        ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        ArrayAdapter<Integer> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         spinner.setAdapter(adapter);
     }
 }

@@ -8,7 +8,7 @@ import org.json.JSONObject;
 /**
  * Created by michal on 10/27/2016.
  */
-public class StringServiceRecord {
+class StringServiceRecord {
     private JSONObject jsonObject;
 
     public StringServiceRecord(String data) {
@@ -21,19 +21,19 @@ public class StringServiceRecord {
     }
 
    public String getStatsString() throws JSONException {
-        String s = jsonObject.getString("csrPercentil").toString() + "\n" +
-                jsonObject.getString("TotalKills").toString() + "\n" +
-                jsonObject.getString("TotalAssists").toString() + "\n" +
-                jsonObject.getString("TotalDeaths").toString() + "\n" +
-                jsonObject.getString("KillPerGame").toString() + "\n" +
-                jsonObject.getString("AsistPerGame").toString() + "\n" +
-                jsonObject.getString("DeathsPerGame").toString() + "\n" +
-                jsonObject.getString("TotalGamesWon").toString() + "\n" +
-                jsonObject.getString("TotalGamesLost").toString() + "\n" +
-                jsonObject.getString("TotalGamesWon%").toString() + "\n" +
-                jsonObject.getString("TotalHeadShot").toString() + "\n" +
-                jsonObject.getString("HeadPerGame").toString() + "\n";
 
-        return s;
+       return jsonObject.getString("GamesCompleted").toString() + "\n" +
+               jsonObject.getString("csrPercentil").toString() + "\n" +
+               jsonObject.getString("TotalKills").toString() + "\n" +
+               jsonObject.getString("TotalAssists").toString() + "\n" +
+               jsonObject.getString("TotalDeaths").toString() + "\n" +
+               jsonObject.getString("KillPerGame").toString() + "\n" +
+               jsonObject.getString("AsistPerGame").toString() + "\n" +
+               jsonObject.getString("DeathsPerGame").toString() + "\n" +
+               jsonObject.getString("TotalGamesWon").toString() + "\n" +
+               jsonObject.getString("TotalGamesLost").toString() + "\n" +
+               jsonObject.getString("TotalGamesWon%").toString() + "\n" +
+               jsonObject.getString("TotalHeadShot").toString() + "\n" +
+               jsonObject.getString("HeadPerGame").toString() + "\n";
     }
 }

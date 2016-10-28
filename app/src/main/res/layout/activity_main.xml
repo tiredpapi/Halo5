@@ -27,7 +27,8 @@
         android:text="Info"
         android:id="@+id/textViewInfo"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:scrollbars="vertical"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -57,6 +58,16 @@
         android:id="@+id/textViewBorec"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/textViewLimited"
-        android:layout_marginStart="23dp"/>
+        android:layout_marginStart="23dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone">
+    </ProgressBar>
 
 </RelativeLayout>

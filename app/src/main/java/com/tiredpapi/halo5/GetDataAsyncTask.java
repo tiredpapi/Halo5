@@ -4,13 +4,12 @@ package com.tiredpapi.halo5;
  * Created by michal on 10/25/2016.
  **/
 
-
-
-
-
-
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -22,6 +21,8 @@ import java.net.URL;
 
 class GetDataAsyncTask extends AsyncTask<String, Void, String> {
     private String data = "";
+    private Activity activity;
+    private ProgressBar pb;
 
     @Override
     protected String doInBackground(String... string) {
@@ -51,19 +52,40 @@ class GetDataAsyncTask extends AsyncTask<String, Void, String> {
 
                     Log.i(Constant.LOG_TAG, "Service record async task finished");
 
-                    return data.toString();
+                    return data;
 
                 default:
                     return null;
             }
 
-
-        } catch (MalformedURLException e) {
-            Log.w(Constant.LOG_TAG, e);
         } catch (IOException e) {
             Log.w(Constant.LOG_TAG, e);
         }
 
         return null;
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        super.onPostExecute(s);
+        pb.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    protected void onProgressUpdate(Void... values) {
+        super.onProgressUpdate(values);
+        pb.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        pb.setVisibility(View.VISIBLE);
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
+        ProgressBar pb = (ProgressBar) activity.findViewById(R.id.progressBar);
+        pb.setVisibility(View.VISIBLE);
     }
 }

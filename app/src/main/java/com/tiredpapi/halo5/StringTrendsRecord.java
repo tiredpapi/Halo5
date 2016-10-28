@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
 /**
  * Created by michal on 10/27/2016.
  */
-public class StringTrendsRecord {
+class StringTrendsRecord {
     private JSONObject jsonObjectAll;
     private JSONObject jsonObjectSingel;
 
